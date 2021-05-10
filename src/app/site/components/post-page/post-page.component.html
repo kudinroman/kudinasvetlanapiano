@@ -1,0 +1,23 @@
+<div *ngIf="post$ !== null">
+  <div *ngIf="post$ | async as post; else loading">
+    <div class="post">
+      <div class="header">
+        <h1>{{post.title}}</h1>
+      </div>
+
+      <div>
+        <quill-view-html [content]="post.text"></quill-view-html>
+      </div>
+
+      <div class="info">
+        <strong>{{post.author}}</strong>
+        <small>{{post.date | date:'medium':null:'ru'}}</small>
+      </div>
+
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <p class="text-center">Пост загружается...</p>
+  </ng-template>
+</div>

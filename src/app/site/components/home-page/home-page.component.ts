@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { Post } from "../shared/interfaces";
-import { PostsService } from "../shared/posts.service";
+import { Post } from "../../../shared/interfaces";
+import { PostsService } from "../../../shared/posts.service";
 
 @Component({
   selector: "app-home-page",
@@ -10,9 +10,14 @@ import { PostsService } from "../shared/posts.service";
 })
 export class HomePageComponent implements OnInit {
   posts$: Observable<Post[]>;
+  currentPostId: string;
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
     this.posts$ = this.postsService.getAll();
+  }
+
+  onChoosePost(currentPostId: string) {
+    this.currentPostId = currentPostId;
   }
 }

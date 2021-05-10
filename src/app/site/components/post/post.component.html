@@ -9,5 +9,5 @@
     <small>{{post.author}}</small>
   </div>
 
-  <button [routerLink]="['/post', post.id]" class="btn btn-dark">Открыть</button>
+  <button (click)="choosePost(post.id)" class="btn btn-dark">Открыть</button>
 </div>
