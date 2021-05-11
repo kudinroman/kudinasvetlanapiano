@@ -2,17 +2,17 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
 
         <div class="form-control" [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
-            <label for="title">Название поста:</label>
+            <label for="title">Заголовок:</label>
             <input id="title" type="text" formControlName="title">
             <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
-                <small *ngIf="form.get('title').errors.required">
-                    Введите название поста
+                <small class="danger-color" *ngIf="form.get('title').errors.required">
+                    Введите заголовок
                 </small>
             </div>
         </div>
 
         <div class="form-control">
-            <label>Контент поста:</label>
+            <label>Контент:</label>
             <quill-editor formControlName="text"></quill-editor>
         </div>
 
@@ -22,5 +22,5 @@
 </div>
 
 <ng-template #loading>
-    <p class="text-center">Идет загрузка...</p>
+    <p class="text-center">Загрузка...</p>
 </ng-template>

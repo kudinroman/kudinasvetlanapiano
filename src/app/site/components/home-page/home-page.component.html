@@ -3,9 +3,11 @@
     <app-post *ngFor="let post of posts" [post]="post" (choosedPostId)="onChoosePost($event)"></app-post>
   </div>
 
-  <app-post-page [currentPostId]="currentPostId"></app-post-page>
+  <div class="post-page">
+    <app-post-page [currentPostId]="currentPostId"></app-post-page>
+  </div>
 </div>
 
 <ng-template #loading>
-  <p class="text-center">Загружаю посты...</p>
+  <p class="text-center">Загрузка...</p>
 </ng-template>
